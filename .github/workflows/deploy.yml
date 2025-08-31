@@ -27,7 +27,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           region: ap-south-1                    # Hardcoded region
-          application_name: my-springboot-app   # Hardcoded app name
-          environment_name: my-springboot-env   # Hardcoded environment name
+          application_name: my-springboot-Todo-app   # Hardcoded app name
+          environment_name: my-springboot-Todo-env   # Hardcoded environment name
           version_label: ${{ github.sha }}      # Unique version label
           zip_file: target/*.jar                # Path to built artifact
