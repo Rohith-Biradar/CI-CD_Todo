@@ -31,4 +31,4 @@ jobs:
           environment_name: my-springboot-Todo-env   # Hardcoded environment name
           version_label: ${{ github.sha }}      # Unique version label
           zip_file: target/*.jar                # Path to built artifact
-          distribution: zip
+        
