@@ -20,16 +20,20 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven
-        run: mvn clean package
+        run: |
+          mvn clean package
+          # Find the JAR file and set its name as an environment variable
+          ARTIFACT_NAME=$(find target -name "*.jar")
+          echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >> $GITHUB_ENV
 
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v22
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: us-east-1                 # Hardcoded region
-          application_name: my-springboot-Todo-app   # Hardcoded app name
-          environment_name: my-springboot-Todo-env   # Hardcoded environment name
-          version_label: ${{ github.sha }}      # Unique version label
-          zip_file: target/*.jar                # Path to built artifact
-        
+          region: us-east-1
+          application_name: my-springboot-Todo-app
+          environment_name: my-springboot-Todo-env
+          version_label: ${{ github.sha }}
+          # Correct the parameter name from zip_file to deployment_package
+          deployment_package: ${{ env.ARTIFACT_NAME }}
