@@ -26,7 +26,7 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: ap-south-1                    # Hardcoded region
+          region: us-east-1                 # Hardcoded region
           application_name: my-springboot-Todo-app   # Hardcoded app name
           environment_name: my-springboot-Todo-env   # Hardcoded environment name
           version_label: ${{ github.sha }}      # Unique version label
