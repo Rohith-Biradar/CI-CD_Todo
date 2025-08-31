@@ -33,7 +33,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           region: us-east-1
           application_name: my-springboot-Todo-app
-          environment_name: my-springboot-Todo-env
+          environment_name: My-springboot-Todo-env
           version_label: ${{ github.sha }}
           # Correct the parameter name from zip_file to deployment_package
           deployment_package: ${{ env.ARTIFACT_NAME }}
